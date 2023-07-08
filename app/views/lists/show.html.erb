@@ -3,7 +3,11 @@
 <h2>Movies in this list:</h2>
 <ul>
   <% @movies.each do |movie| %>
-    <li><%= movie.title %></li>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <li>
+      <%= movie.title %>
+      <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
   <% end %>
 </ul>
 

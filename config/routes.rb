@@ -23,11 +23,3 @@ end
 # I can see the details of a movie list       (lists#show)
 # I can bookmark a movie inside a movie list  (bookmarks#create and bookmarks#new)
 # I can destroy a bookmark                    (bookmarks#destroy)
-
-# R -> index
-# C -> create
-# C -> new
-# U -> edit
-# R -> show
-# U -> update
-# D -> destroy
