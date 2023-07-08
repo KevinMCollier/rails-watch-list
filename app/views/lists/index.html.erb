@@ -1,11 +1,19 @@
-<div class="map" style="background-image: url('')"></div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path("theater.jpg") %>');">
+  <div class="container">
+    <h1 class="text-center">Simplify Your Next Movie Night</h1>
+    <p class="text-center">Create watch lists with your favorite movies 🎬</p>
+  </div>
+</div>
+
 <div class="container">
   <h3 class="my-3">My Lists</h3>
   <div class="row justify-content-center">
     <% @lists.each do |list| %>
       <div class="col-md-4 col-12">
         <div class="card m-4">
-          <h5><%= link_to list.name, list_path(list) %></h5>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= list.image_url %>')">
+            <%= link_to list.name, list_path(list), class: "white-fade-link" %>
+          </div>
         </div>
       </div>
     <% end %>

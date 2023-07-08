@@ -1,15 +1,27 @@
-<h1><%= @list.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @list.image_url %>');">
+  <div class="container">
+    <h1 class="text-center"><%= @list.name %></h1>
+  </div>
+</div>
 
-<h2>Movies in this list:</h2>
-<ul>
-  <% @movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-    <li>
-      <%= movie.title %>
-      <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </li>
-  <% end %>
-</ul>
 
-<h2>Add bookmark</h2>
-<%= link_to 'add a movie', new_list_bookmark_path(@list)%>
+
+<div class="container m-4">
+  <div class="row justify-content-center">
+    <% @movies.each do |movie| %>
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="card-movie m-4">
+          <img src="<%= movie.poster_url %>" alt="">
+          <div class="card-movie-info">
+            <h5><%= movie.title %></h5>
+            <p><%= truncate_text(movie.overview, 150) %></p>
+            <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h2>Add bookmark</h2>
+  <%= link_to 'add a movie', new_list_bookmark_path(@list)%>
+</div>

@@ -23,7 +23,7 @@ movies["results"].each do |result|
   Movie.create(
     title: result["title"],
     overview: result["overview"],
-    poster_url: result["poster_path"],
+    poster_url: "https://image.tmdb.org/t/p/w500#{result["poster_path"]}",
     rating: result["vote_average"]
   )
 end
