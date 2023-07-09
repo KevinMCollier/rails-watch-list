@@ -1,6 +1,9 @@
-<h2>Add bookmark</h2>
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie, prompt: 'Select a movie' %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container m-5">
+  <h1 class="text-center">Add Bookmark 🔖</h1>
+  <%= render 'form', bookmark: @bookmark %>
+  <br>
+
+  <div class="text-center">
+    <%= link_to "Return to list", list_path(@list) %>
+  </div>
+</div>

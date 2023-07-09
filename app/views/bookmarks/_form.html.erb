@@ -1,0 +1,9 @@
+<div class="row justify-content-center m-5">
+  <div class="col-6">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie, prompt: 'Select a movie' %>
+      <%= f.input :comment %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

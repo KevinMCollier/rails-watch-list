@@ -14,14 +14,18 @@
         <div class="card-movie m-4">
           <img src="<%= movie.poster_url %>" alt="">
           <div class="card-movie-info">
-            <h5><%= movie.title %></h5>
+            <h5><%= movie.title %> - <%= movie.rating %> <i class="fa-solid fa-star fa-sm" style="color: #eed65d;"></i></h5>
             <p><%= truncate_text(movie.overview, 150) %></p>
-            <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <div class="card-movie-info-bottom d-flex justify-content-between">
+              <p class="bookmark-comment"><i class="fa-regular fa-comment"></i> <%= truncate_text(bookmark.comment, 20) %></p>
+              <%= link_to "Delete", bookmark_path(bookmark), class: "delete-link", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  <h2>Add bookmark</h2>
-  <%= link_to 'add a movie', new_list_bookmark_path(@list)%>
+  <div class="d-flex justify-content-end mt-4">
+    <%= link_to 'Add Movie', new_list_bookmark_path(@list), class: "button"%>
+  </div>
 </div>

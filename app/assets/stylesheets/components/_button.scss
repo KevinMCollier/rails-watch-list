@@ -1,0 +1,13 @@
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: $button-color;
+  color: $button-text-color;
+  border-radius: $button-border-radius;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}

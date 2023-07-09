@@ -12,9 +12,9 @@
 }
 
 .navbar-link {
-  color: inherit;
+  color: $dark-red;
   text-decoration: none;
   &:hover {
-    color: rgb(184, 37, 37);
+    color: $darkest-red;
   }
 }
