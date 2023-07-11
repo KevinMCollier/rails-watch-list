@@ -11,7 +11,7 @@
     <% @lists.each do |list| %>
       <div class="col-md-4 col-12">
         <div class="card m-4">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= list.image_url %>')">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= list.photo.key %>')">
             <%= link_to list.name, list_path(list), class: "white-fade-link" %>
           </div>
         </div>
